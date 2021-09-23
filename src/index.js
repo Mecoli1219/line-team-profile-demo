@@ -1,3 +1,5 @@
+const {question1_text, question2_text, question3_text} = require("./statics/text.js")
+
 const express = require("express");
 const linebot = require("linebot");
 // const line = require("@line/bot-sdk");
@@ -5,11 +7,15 @@ const linebot = require("linebot");
 require("dotenv").config();
 
 const app = express();
+app.use('/statics', express.static(__dirname + '/statics'))
+app.use('/profiles', express.static(__dirname + '/profiles'))
 const bot = new linebot({
   channelId: process.env.channelId,
   channelSecret: process.env.channelSecret,
   channelAccessToken: process.env.channelAccessToken,
 });
+
+const ngrok_path = process.env.ngrok_path
 
 // temporary data storage
 let test_score = 0;
@@ -27,7 +33,7 @@ let question1 = {
         size: "micro",
         hero: {
           type: "image",
-          url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+          url: ngrok_path + '/statics/question1/question.png',
           size: "full",
           aspectMode: "cover",
           aspectRatio: "320:213",
@@ -47,7 +53,7 @@ let question1 = {
               contents: [
                 {
                   type: "text",
-                  text: "question1 description",
+                  text: question1_text.question,
                   size: "sm",
                 },
               ],
@@ -61,7 +67,7 @@ let question1 = {
         size: "micro",
         hero: {
           type: "image",
-          url: "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip10.jpg",
+          url: ngrok_path + '/statics/question1/option1.png',
           size: "full",
           aspectMode: "cover",
           aspectRatio: "320:213",
@@ -72,7 +78,7 @@ let question1 = {
           contents: [
             {
               type: "text",
-              text: "Option1",
+              text: question1_text.option1.name,
               weight: "bold",
               size: "md",
               wrap: true,
@@ -88,7 +94,7 @@ let question1 = {
                   contents: [
                     {
                       type: "text",
-                      text: "option 1 content",
+                      text: question1_text.option1.description,
                       wrap: true,
                       color: "#8c8c8c",
                       size: "xs",
@@ -132,7 +138,7 @@ let question1 = {
         size: "micro",
         hero: {
           type: "image",
-          url: "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip11.jpg",
+          url: ngrok_path + '/statics/question1/option2.png',
           size: "full",
           aspectMode: "cover",
           aspectRatio: "320:213",
@@ -143,7 +149,7 @@ let question1 = {
           contents: [
             {
               type: "text",
-              text: "Option2",
+              text: question1_text.option2.name,
               weight: "bold",
               size: "sm",
               wrap: true,
@@ -159,7 +165,7 @@ let question1 = {
                   contents: [
                     {
                       type: "text",
-                      text: "option 2 content",
+                      text: question1_text.option2.description,
                       wrap: true,
                       color: "#8c8c8c",
                       size: "xs",
@@ -203,7 +209,7 @@ let question1 = {
         size: "micro",
         hero: {
           type: "image",
-          url: "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip12.jpg",
+          url: ngrok_path + '/statics/question1/option3.png',
           size: "full",
           aspectMode: "cover",
           aspectRatio: "320:213",
@@ -214,7 +220,7 @@ let question1 = {
           contents: [
             {
               type: "text",
-              text: "Option3",
+              text: question1_text.option3.name,
               weight: "bold",
               size: "sm",
             },
@@ -229,7 +235,7 @@ let question1 = {
                   contents: [
                     {
                       type: "text",
-                      text: "option 3 content",
+                      text: question1_text.option3.description,
                       wrap: true,
                       color: "#8c8c8c",
                       size: "xs",
@@ -283,7 +289,7 @@ let question2 = {
         size: "micro",
         hero: {
           type: "image",
-          url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+          url: ngrok_path + '/statics/question2/question.png',
           size: "full",
           aspectMode: "cover",
           aspectRatio: "320:213",
@@ -303,7 +309,7 @@ let question2 = {
               contents: [
                 {
                   type: "text",
-                  text: "question2 description",
+                  text: question2_text.question,
                   size: "sm",
                 },
               ],
@@ -317,7 +323,7 @@ let question2 = {
         size: "micro",
         hero: {
           type: "image",
-          url: "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip10.jpg",
+          url: ngrok_path + '/statics/question2/option1.png',
           size: "full",
           aspectMode: "cover",
           aspectRatio: "320:213",
@@ -328,7 +334,7 @@ let question2 = {
           contents: [
             {
               type: "text",
-              text: "Option1",
+              text: question2_text.option1.name,
               weight: "bold",
               size: "md",
               wrap: true,
@@ -344,7 +350,7 @@ let question2 = {
                   contents: [
                     {
                       type: "text",
-                      text: "option 1 content",
+                      text: question2_text.option1.description,
                       wrap: true,
                       color: "#8c8c8c",
                       size: "xs",
@@ -388,7 +394,7 @@ let question2 = {
         size: "micro",
         hero: {
           type: "image",
-          url: "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip11.jpg",
+          url: ngrok_path + '/statics/question2/option2.png',
           size: "full",
           aspectMode: "cover",
           aspectRatio: "320:213",
@@ -399,7 +405,7 @@ let question2 = {
           contents: [
             {
               type: "text",
-              text: "Option2",
+              text: question2_text.option2.name,
               weight: "bold",
               size: "sm",
               wrap: true,
@@ -415,7 +421,7 @@ let question2 = {
                   contents: [
                     {
                       type: "text",
-                      text: "option 2 content",
+                      text: question2_text.option2.description,
                       wrap: true,
                       color: "#8c8c8c",
                       size: "xs",
@@ -459,7 +465,7 @@ let question2 = {
         size: "micro",
         hero: {
           type: "image",
-          url: "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip12.jpg",
+          url: ngrok_path + '/statics/question2/option3.png',
           size: "full",
           aspectMode: "cover",
           aspectRatio: "320:213",
@@ -470,7 +476,7 @@ let question2 = {
           contents: [
             {
               type: "text",
-              text: "Option3",
+              text: question2_text.option3.name,
               weight: "bold",
               size: "sm",
             },
@@ -485,7 +491,7 @@ let question2 = {
                   contents: [
                     {
                       type: "text",
-                      text: "option 3 content",
+                      text: question2_text.option3.description,
                       wrap: true,
                       color: "#8c8c8c",
                       size: "xs",
@@ -539,7 +545,7 @@ let question3 = {
         size: "micro",
         hero: {
           type: "image",
-          url: "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+          url: ngrok_path + '/statics/question3/question.png',
           size: "full",
           aspectMode: "cover",
           aspectRatio: "320:213",
@@ -559,7 +565,7 @@ let question3 = {
               contents: [
                 {
                   type: "text",
-                  text: "question3 description",
+                  text: question3_text.question,
                   size: "sm",
                 },
               ],
@@ -573,7 +579,7 @@ let question3 = {
         size: "micro",
         hero: {
           type: "image",
-          url: "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip10.jpg",
+          url: ngrok_path + '/statics/question3/option1.png',
           size: "full",
           aspectMode: "cover",
           aspectRatio: "320:213",
@@ -584,7 +590,7 @@ let question3 = {
           contents: [
             {
               type: "text",
-              text: "Option1",
+              text: question3_text.option1.name,
               weight: "bold",
               size: "md",
               wrap: true,
@@ -600,7 +606,7 @@ let question3 = {
                   contents: [
                     {
                       type: "text",
-                      text: "option 1 content",
+                      text: question3_text.option1.description,
                       wrap: true,
                       color: "#8c8c8c",
                       size: "xs",
@@ -644,7 +650,7 @@ let question3 = {
         size: "micro",
         hero: {
           type: "image",
-          url: "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip11.jpg",
+          url: ngrok_path + '/statics/question3/option2.png',
           size: "full",
           aspectMode: "cover",
           aspectRatio: "320:213",
@@ -655,7 +661,7 @@ let question3 = {
           contents: [
             {
               type: "text",
-              text: "Option2",
+              text: question3_text.option2.name,
               weight: "bold",
               size: "sm",
               wrap: true,
@@ -671,7 +677,7 @@ let question3 = {
                   contents: [
                     {
                       type: "text",
-                      text: "option 2 content",
+                      text: question3_text.option2.description,
                       wrap: true,
                       color: "#8c8c8c",
                       size: "xs",
@@ -715,7 +721,7 @@ let question3 = {
         size: "micro",
         hero: {
           type: "image",
-          url: "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip12.jpg",
+          url: ngrok_path + '/statics/question3/option3.png',
           size: "full",
           aspectMode: "cover",
           aspectRatio: "320:213",
@@ -726,7 +732,7 @@ let question3 = {
           contents: [
             {
               type: "text",
-              text: "Option3",
+              text: question3_text.option3.name,
               weight: "bold",
               size: "sm",
             },
@@ -741,7 +747,7 @@ let question3 = {
                   contents: [
                     {
                       type: "text",
-                      text: "option 3 content",
+                      text: question3_text.option3.description,
                       wrap: true,
                       color: "#8c8c8c",
                       size: "xs",
