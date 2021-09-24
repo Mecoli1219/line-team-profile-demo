@@ -1,4 +1,5 @@
 const {question1, question2, question3} = require("./statics/json.js")
+const {profile1, profile2, profile3, profile4, profile5} = require("./profiles/json")
 
 const express = require("express");
 const linebot = require("linebot");
@@ -67,8 +68,26 @@ bot.on("postback", async (event) => {
         type: 'text',
         text: "You did it!!. You're final score is " + test_score 
     }]);
-      test_score = 0;
       test_level = 1;
+      if (test_score <= 4){
+        bot.reply(token, [{
+          type: "text", 
+          text: "According to your selection, you may be interested in the following people:"
+        }, profile1, profile2]);
+      }
+      if (test_score > 4 && test_score <= 7){
+        bot.reply(token, [{
+          type: "text", 
+          text: "According to your selection, you may be interested in the following people:"
+        }, profile3, profile4]);
+      }
+      if (test_score > 7){
+        bot.reply(token, [{
+          type: "text", 
+          text: "According to your selection, you may be interested in the following person:"
+        }, profile5]);
+      }
+      test_score = 0;
     }
   }
 });
