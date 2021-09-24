@@ -1,5 +1,5 @@
-const {question1, question2, question3} = require("./statics/json.js")
-const {profile1, profile2, profile3, profile4, profile5} = require("./profiles/json")
+const {question1, question2, question3} = require("./src/statics/json.js")
+const {profile1, profile2, profile3, profile4, profile5} = require("./src/profiles/json")
 
 const express = require("express");
 const linebot = require("linebot");
@@ -8,8 +8,7 @@ const linebot = require("linebot");
 require("dotenv").config();
 
 const app = express();
-app.use('/statics', express.static(__dirname + '/statics'))
-app.use('/profiles', express.static(__dirname + '/profiles'))
+app.use(express.static(__dirname + '/src'))
 const bot = new linebot({
   channelId: process.env.channelId,
   channelSecret: process.env.channelSecret,
