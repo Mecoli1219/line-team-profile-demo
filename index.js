@@ -26,7 +26,7 @@ bot.on("message", async (event) => {
     console.log(token);
     bot.reply(token, [{
       type: 'text',
-      text: 'QUIZ START!'
+      text: '您好！歡迎光臨EELITE的小店！我們將依據您的喜愛與嚮往的風格為您挑選出最適合您的專員，就讓我們開始做幾項小測驗吧！'
     }, question1]);
     console.log('ok')
   }
