@@ -93,6 +93,8 @@ bot.on("postback", async (event) => {
 
 // webhook
 app.post("/webhook", bot.parser());
-app.listen(3000, (res) => {
-  console.log("伺服器服務運行在 http://localhost:3000");
-});
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
