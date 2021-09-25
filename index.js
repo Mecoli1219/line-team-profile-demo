@@ -53,19 +53,19 @@ bot.on("postback", async (event) => {
     if (test_level === 2){
       bot.reply(token, [{
         type: 'text',
-        text: "Here's the second QUIZ!!. You're current score is " + test_score 
+        text: "Here's the second QUIZ!!. Your current score is " + test_score 
     }, question2]);
   }
     else if (test_level === 3){
       bot.reply(token, [{
         type: 'text',
-        text: "You're almost there. Here's the third QUIZ!!. You're current score is " + test_score 
+        text: "You're almost there. Here's the third QUIZ!!. Your current score is " + test_score 
     }, question3]);
   }
     else if (test_level === 4){
       bot.reply(token, [{
         type: 'text',
-        text: "You did it!!. You're final score is " + test_score 
+        text: "You did it!!. Your final score is " + test_score 
     }]);
       test_level = 1;
       if (test_score <= 4){
